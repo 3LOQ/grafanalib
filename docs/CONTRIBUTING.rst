@@ -33,6 +33,9 @@ Conventions
 * Local variables are ``snake_cased``
 * We're kind of fussy about indentation:
   4 spaces everywhere, follow the examples in `core.py`_ if you're uncertain
+* Triple Double quotes `"""` for docstrings
+* Double quotes "" for human readable message or when string used for interpolation
+* Single quotes '' for symbol like strings
 
 Testing
 -------
@@ -41,6 +44,10 @@ Lots of grafanalib is just simple data structures, so we aren't fastidious about
 
 However, tests are strongly encouraged for anything with non-trivial logic.
 Please try to use `hypothesis`_ for your tests.
+
+.. code-block:: console
+
+  $ make all
 
 Gotchas
 -------

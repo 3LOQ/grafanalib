@@ -2,19 +2,171 @@
 Changelog
 =========
 
-Next release
-============
+x.x.x (TBD)
+==================
+
+* Added colour overrides to pie chart panel
+* Added missing attributes from xAxis class
+* Added transformations for the Panel class (https://grafana.com/docs/grafana/next/panels/transformations/types-options/#transformation-types-and-options)
+* Added Worldmap panel (https://grafana.com/grafana/plugins/grafana-worldmap-panel/)
+* Added missing fill gradient to Graph panel
+* Added missing align to graph panel
+* Added missing show percentage attribute to Pie chart panel
+* Added ``extraJson`` attribute to the Panel class for overriding the panel with raw JSON
 
 Changes
 -------
 
+* ...
+
+0.5.13 (2021-05-17)
+===================
+
+* Added a test for the Alert class.
+
+Changes
+-------
+
+* Bugfix: changed 'target' validator in AlertNotification to accept CloudwatchMetricsTarget
+* Moved the alertRuleTag field from Graph to Alert.
+
+0.5.12 (2021-04-24)
+===================
+
+* Added hide parameter to CloudwatchMetricsTarget class
+* Added table-driven example dashboard and upload script
+
+Changes
+-------
+
+* bugfix load_dashboard add support for old python version 2.x, 3.3 and 3.4
+* Fix default target datasource to work with newer versions of Grafana
+* Removed re-defined maxDataPoints field from multiple panels
+* Fix the AlertList class and add a test for it
+
+Thanks to all those who have contributed to this release.
+
+
+0.5.11 (2021-04-06)
+===================
+
+* Added timeField field for the Elasticsearch target to allow the alert to change its state
+* Added nameFilter field for the AlertList panel
+* Added dashboardTags field for the AlertList panel
+
+Thanks a lot for your contributions to this release, @dafna-starkware
+
+0.5.10 (2021-03-21)
+===================
+
+* Added Logs panel (https://grafana.com/docs/grafana/latest/panels/visualizations/logs-panel/)
+* Added Cloudwatch metrics datasource (https://grafana.com/docs/grafana/latest/datasources/cloudwatch/)
+* Added option to hide dashboard time picker
+* Added Notification for Alert
+* Added alertRuleTags field to the graph panel
+* Added support for thresholds to graph panel
+* Added support for Elasticsearch alert condition
+* Added support for using gridPos for dashboard panels
+* Added support for Humio Data Source. (https://grafana.com/grafana/plugins/humio-datasource/)
+
+
+Changes
+-------
+
+* Replace deprecated attr.assoc with attr.evolve
+
+
+
+0.5.9 (2020-12-18)
+==================
+
+* Added Alert Threshold enabled/disabled to Graphs.
+* Added constants for all Grafana value formats
+* Added support for repetitions to Stat Panels (https://grafana.com/docs/grafana/latest/variables/repeat-panels-or-rows/)
+* Added textMode option to Stat Panels
+* Add Panel object for all panels to inherit from
+* Add Dashboard list panel (https://grafana.com/docs/grafana/latest/panels/visualizations/dashboard-list-panel/)
+
+
+Changes
+-------
+
+* Change supported python versions from 3.6 to 3.9
+* Added hide parameter to Target
+* Updated dependencies (docs, build, CI)
+* Consistent coding style
+
+
+0.5.8 (2020-11-02)
+==================
+
+This release adds quite a few new classes to grafanalib, ElasticSearch support was improved and support for InfluxDB data sources was added.
+
+We would also very much like to welcome James Gibson as new maintainer of grafanalib. Thanks a lot for stepping up to this role!
+
+Changes
+-------
+
+* Added more YAxis formats, added Threshold and SeriesOverride types
+* dataLinks support in graphs
+* Add Elasticsearch bucket script pipeline aggregator
+* Added ability to hide metrics for Elasticsearch MetricAggs
+* Add derivative metric aggregation for Elasticsearch
+* Add ``Stat`` class (and ``StatMapping``, ``StatValueMapping``, ``StatRangeMapping``) to support the Stat panel
+* Add ``Svg`` class to support the SVG panel
+* Add ``PieChart`` class for creating Pie Chart panels
+* Add `transparent` setting to classes that were missing it (Heatmap, PieChart)
+* Add InfluxDB data source
+* Add ``auto_ref_ids`` to ``Graph``
+
+Thanks a lot for your contributions to this release, @DWalker487, @JamesGibo, @daveworth, @dholbach, @fauust, @larsderidder, @matthewmrichter.
+
+
+0.5.7 (2020-05-11)
+==================
+
+Changes
+-------
+
+* Fix crasher instatiating elasticsearch panels.
+* Remove unused ``tools/`` directory.
+
+Thanks a lot for your contributions to this release, @DWalker487, @dholbach and @matthewmrichter.
+
+
+0.5.6 (2020-05-05)
+==================
+
+Changes
+-------
+
+* Add ``Heatmap`` class (and ``HeatmapColor``) to support the Heatmap panel (#170)
 * Add ``BarGuage`` for creating bar guages panels in grafana 6
 * Add ``GuagePanel`` for creating guages in grafana 6
+* Add data links support to ``Graph``, ``BarGuage``, and ``GuagePanel`` panels
 * Removed gfdatasource - feature is built in to Grafana since v5.
 * Generate API docs for readthedocs.org
 * Fix AlertList panel generation
+* Add both upper and lower case `"time"` pattern for time_series column format in Table class
 * Drop testing of Python 2.7, it has been EOL'ed and CI was broken
   due to this.
+* Automatically test documentation examples.
+* Point to dev meeting resources.
+* Add description attribute to Dashboard.
+* Add support for custom variables.
+* Point out documentation on readthedocs more clearly.
+* Add average metric aggregation for elastic search
+* Bugfix to query ordering in Elasticsearch TermsGroupBy
+* Added all parameters for StringColumnStyle
+* Add Elasticsearch Sum metric aggregator
+* Add ``Statusmap`` class (and ``StatusmapColor``) to support the Statusmap panel plugin
+* Bugfix to update default ``Threshold`` values for ``GaugePanel`` and ``BarGauge``
+* Use Github Actions for CI.
+* Fix test warnings.
+* Update ``BarGauge`` and ``GaugePanel`` default Threshold values.
+* Update release instructions.
+
+Thanks a lot to the contributions from @DWalker487, @bboreham, @butlerx, @dholbach, @franzs, @jaychitalia95, @matthewmrichter and @number492 for this release!
 
 0.5.5 (2020-02-17)
 ==================
@@ -50,6 +202,8 @@ Changes
 * Add ``STATE_OK`` for alerts
 * Add named values for the Template.hide parameter
 * Add cardinality metric aggregator for ElasticSearch
+* Add Threshold and Series Override types
+* Add more YAxis formats
 
 Many thanks to contributors @kevingessner, @2easy, @vicmarbev, @butlerx.
 

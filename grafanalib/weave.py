@@ -10,20 +10,20 @@ import grafanalib.core as G
 from grafanalib import prometheus
 
 
-YELLOW = "#EAB839"
-GREEN = "#7EB26D"
-BLUE = "#6ED0E0"
-ORANGE = "#EF843C"
-RED = "#E24D42"
+YELLOW = '#EAB839'
+GREEN = '#7EB26D'
+BLUE = '#6ED0E0'
+ORANGE = '#EF843C'
+RED = '#E24D42'
 
 ALIAS_COLORS = {
-    "1xx": YELLOW,
-    "2xx": GREEN,
-    "3xx": BLUE,
-    "4xx": ORANGE,
-    "5xx": RED,
-    "success": GREEN,
-    "error": RED,
+    '1xx': YELLOW,
+    '2xx': GREEN,
+    '3xx': BLUE,
+    '4xx': ORANGE,
+    '5xx': RED,
+    'success': GREEN,
+    'error': RED,
 }
 
 
@@ -56,7 +56,7 @@ def QPSGraph(data_source, title, expressions, **kwargs):
 
 def stacked(graph):
     """Turn a graph into a stacked graph."""
-    return attr.assoc(
+    return attr.evolve(
         graph,
         lineWidth=0,
         nullPointMode=G.NULL_AS_ZERO,
